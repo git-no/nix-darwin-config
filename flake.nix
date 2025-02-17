@@ -1,5 +1,5 @@
 {
-  description = "Example nix-darwin system flake";
+  description = "My nix-darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -35,6 +35,11 @@
 
       # The platform the configuration will be used on. [aarch64-darwin, x86_64-darwin]
       nixpkgs.hostPlatform = "x86_64-darwin";
+
+      security.pam.enableSudoTouchIdAuth = true;
+      system.defaults = {
+        dock.autohide = true;
+      };
     };
   in
   {
