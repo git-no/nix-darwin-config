@@ -16,6 +16,9 @@
         [ pkgs.neovim
         ];
 
+      # To turn off nix-darwin’s management of the Nix installation, set:
+      nix.enable = false;
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
