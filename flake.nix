@@ -48,15 +48,23 @@
         dock.autohide = true;  # macOS dock hides automatically
         dock.mru-spaces = false;  # Don’t rearrange spaces based on the most recent use
         screensaver.askForPasswordDelay = 10;  # Only ask for a password in the screensaver if it is running for longer than 10 seconds
-        .GlobalPreferences = {
+        GlobalPreferences = {
           com.apple.mouse.scaling = 3;
         };
       };
     };
     homeconfig = { pkgs, ... }: {
+      # this is internal compatibility configuration 
+      # for home-manager, don't change this!
       home.stateVersion = "25.05";
+      # Let home-manager install and manage itself.
       programs.home-manager.enable = true;
+
       home.packages = with pkgs; [];
+
+      home.sessionVariables = {
+        EDITOR = "vim";
+      };
       
     };
   in
@@ -67,10 +75,10 @@
       modules = [ 
         configuration
         home-manager.darwinModules.home-manager {
-          home-manager.useGlobalsPkgs = true;
+          home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.verbose = true;
-          home-manager.users."lukas".packages = homeconfig;  
+          home-manager.users."lukas" = homeconfig;
         }
       ];
     };
