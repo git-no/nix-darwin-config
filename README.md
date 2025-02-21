@@ -1,17 +1,40 @@
-# nix-darwin
+# macOS Setup - declarative configuration with nix, nix-darwin, home-manager
+
+## Steps to bootsrap a new Mac
+
+1. Install Apple's Command Line Tools, whic hare prerequisites for Nix-Darwin, Git Homebrew and more
+
+```bash
+xcode-select --install
+```
+
+2. Clone repo into new hidden directory
+
+```bash
+# use SSH (if set up)
+git clone git@github.com:git-no/nix-darwin-config.git ~/.nix-darwin-config
+
+# use HTTPS and witch remotes later
+git clone https://github.com/git-no/nix-darwin-config.git ~/.nix-darwin-config
+```
+
+[dotfiles in 100 Seconds](https://www.youtube.com/watch?v=r_MpUP6aKiQ)
+
+## Installation
 
 1. Installing Nix
 
 ```bash
+xcode-select --install
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | \
   sh -s -- install
 ```
 
-2. Installing / bootstraping nix-darwin
+2. Botstrapping nix-darwin
 
 ```bash
-mkdir nix-darwin-config
-cd nix-darwin-config
+mkdir .nix-darwin-config
+cd .nix-darwin-config
 nix flake init -t nix-darwin
 
 # Flake editieren
@@ -44,6 +67,14 @@ sudo -i nix upgrade-nix
 
 ## Referenzen
 
-https://github.com/DeterminateSystems/nix-installer
+- [Determinate Nix](https://github.com/DeterminateSystems/nix-installer)
+- [Description nix-on-macos](https://nixcademy.com/posts/nix-on-macos/)
 
-https://nixcademy.com/posts/nix-on-macos/
+[Darwin Configuration Options](https://daiderd.com/nix-darwin/manual/index.html)
+
+https://www.youtube.com/watch?v=JCeYq72Sko0
+
+## ToDo
+
+- Configuration multiple computers and systems
+- More settings and apps

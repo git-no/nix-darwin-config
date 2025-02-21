@@ -3,11 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nix-darwin.url = "github:LnL7/nix-darwin/master";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
@@ -36,17 +42,37 @@
       # The platform the configuration will be used on. [aarch64-darwin, x86_64-darwin]
       nixpkgs.hostPlatform = "x86_64-darwin";
 
+      # Custom settings
       security.pam.enableSudoTouchIdAuth = true;
       system.defaults = {
-        dock.autohide = true;
+        dock.autohide = true;  # macOS dock hides automatically
+        dock.mru-spaces = false;  # Don’t rearrange spaces based on the most recent use
+        screensaver.askForPasswordDelay = 10;  # Only ask for a password in the screensaver if it is running for longer than 10 seconds
+        .GlobalPreferences = {
+          com.apple.mouse.scaling = 3;
+        };
       };
+    };
+    homeconfig = { pkgs, ... }: {
+      home.stateVersion = "25.05";
+      programs.home-manager.enable = true;
+      home.packages = with pkgs; [];
+      
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+    darwinConfigurations."wilde13" = nix-darwin.lib.darwinSystem {
+      modules = [ 
+        configuration
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalsPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.verbose = true;
+          home-manager.users."lukas".packages = homeconfig;  
+        }
+      ];
     };
   };
 }
