@@ -1,29 +1,84 @@
 # Nix Darwin Configuration
 
-- [ ] Darwin system config (maus etc.)
-- [ ] .dot files
-- [ ] apps
-- [ ] app config verzeichnisse
-- [ ] user
-- home-manager, derivate, homebrew?
+- [ ] system config Tastatur Kurzbefehle
+- [ ] screensaver
+- [ ] Wetter in Menuleiste, Siri in Menuleiste ausblenden
+- [ ] control center shortcut
+- [ ] .dot files https://davi.sh/blog/2024/02/nix-home-manager/
+- [ ] config fiels als files spiegeln und nicht als Text in config file
+- [ ] apps (VSC, Obsidian, Windows App) -> kontrollieren ob in App Übersich angezeigt werden, mit Obsidian anfangen
 
-Wie gut einen Überblick über Installatin und Konfiguration bekommen (welche Apps, welche system einstellungen, welche .dot files)
+- [ ] app config verzeichnisse
+- [ ] verschiedene user und systeme
+- [ ] secrets, ssh key sichern, z.B. github autororisierung per ssh, und known systems
+- [ ] alles was in user verzeichnis als . liegt weg sichern
+- [x] Darwin system config (maus etc.)
+      bei vsc darauf achten das settings bei switch nciht immer wider leer sind und neu synchronisiert werden. nix sollte die vsc settings nicht überschreiben.
+
+- home-manager, derivate, homebrew?
+- Node, PNPM?
+- LittleSnitch
+- Windows App RDP
+- Tower
+- 1Password
+- MonitorControl
+- Unarchiver
+- AppCleaner
+- A better Finder Rename
+- AutioBookBuilder
+- VSCode
+- MS Teams
+- Postman/Insomnia?
+- PHiewer
+- Transmit FTP
+- Mindjet Mindmanager
+- Proton?
+- Steuern
+- was mit brew installiert
+- napp
+- Screensaver fliqlo
+
+Wie gut einen Überblick über Installation und Konfiguration bekommen (welche Apps, welche system einstellungen, welche .dot files)
 
 ## Einrichtungen
+
+- xcode
+- icloud + sync
+- nix
 
 - git account, github
 - vsc, und flake formater
 - zsh und dot files
-  fliqlo
-
-Einrichtung
 
 - icloud
 - Apple Wallet/Pay
 
+## Dateistruktur
+
+checks/ for flake checks.
+devshells/ for devshells.
+hosts/ for machine configurations.
+hosts/\*/users/ for Home Manager configurations.
+lib/ for Nix functions.
+modules/ for NixOS and other modules.
+packages/ for packages.
+templates/ for flake templates.
+devshell.nix for the default devshell
+formatter.nix for the default formatter
+package.nix for the default package
+
 ```bash
 darwin-rebuild switch --flake .
 ```
+
+Durch zsh Shortcut reicht jetzt auch aus
+
+```bash
+switch
+```
+
+Basierend auf:
+https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo
 
 https://github.com/dustinlyons/nixos-config/blob/main
 

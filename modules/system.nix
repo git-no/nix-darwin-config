@@ -58,14 +58,15 @@
         launchanim = true;
         show-process-indicators = true;
         tilesize = 48;
-        static-only = true;
+        static-only = false;
         mru-spaces = false;
         show-recents = true;
+        wvous-bl-corner = 13; # https://nix-darwin.github.io/nix-darwin/manual/index.html#opt-system.defaults.dock.wvous-bl-corner
       };
 
       screensaver = {
         askForPassword = true;
-        askForPasswordDelay = 5;
+        askForPasswordDelay = 0;
       };
 
       # Trackpad
@@ -126,5 +127,30 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   # this is required if you want to use darwin's default shell - zsh
   programs.zsh.enable = true;
+  environment.shells = [
+    pkgs.zsh
+  ];
+
+  # Fonts
+  # fonts = {
+  #   packages = with pkgs; [
+  #     # icon fonts
+  #     material-design-icons
+  #     font-awesome
+
+  #     # nerdfonts
+  #     # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/pkgs/data/fonts/nerdfonts/shas.nix
+  #     (nerdfonts.override {
+  #       fonts = [
+  #         # symbols icon only
+  #         "NerdFontsSymbolsOnly"
+  #         # Characters
+  #         "FiraCode"
+  #         "JetBrainsMono"
+  #         "Iosevka"
+  #       ];
+  #     })
+  #   ];
+  # };
 
 }

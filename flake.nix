@@ -25,6 +25,8 @@
       # to avoid problems caused by different versions of nixpkgs dependencies.
     };
 
+    mac-app-util.url = "github:hraban/mac-app-util";
+
   };
 
   # The `outputs` function will return all the build results of the flake.
@@ -37,6 +39,7 @@
     nixpkgs,
     darwin,
     home-manager,
+    mac-app-util,
     ...
   }: let
     # TODO replace with your own username, system and hostname
@@ -59,13 +62,18 @@
         # ./modules/homebrew-mirror.nix 
         ./modules/host-users.nix
 
+        mac-app-util.darwinModules.default
+
         # home manager
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = specialArgs;
-          home-manager.users.${username} = import ./modules/home;
+          home-manager.users.${username} = import ./home-manager;
+          home-manager.sharedModules = [
+            mac-app-util.homeManagerModules.default
+          ];
         }
       ];
     };

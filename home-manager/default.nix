@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 
 {
   # import sub modules
@@ -24,8 +24,14 @@
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    stateVersion = "24.05";
+    # https://nixos.org/manual/nixos/unstable/release-notes
+    stateVersion = "24.11";
   };
+
+  home.packages = with pkgs; [
+    # vscode,
+    obsidian
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
