@@ -1,5 +1,16 @@
 # Nix Darwin Configuration
 
+Next steps:
+⁃ To add Homebrew to your PATH, add to your shell profile (e.g. ~/.bash_profile or ~/.zprofile):
+⁃ eval "$(/opt/homebrew/bin/brew shellenv)" on Apple Silicon
+	⁃	eval "$(/usr/local/bin/brew shellenv)" on Intel
+⁃ Run brew help to get started
+⁃ Further documentation:
+
+Install xcode
+https://brew.sh
+
+- mitteilugnszentrale
 - [ ] system config Tastatur Kurzbefehle
 - [ ] screensaver
 - [ ] Wetter in Menuleiste, Siri in Menuleiste ausblenden
@@ -15,6 +26,7 @@
 - [x] Darwin system config (maus etc.)
       bei vsc darauf achten das settings bei switch nciht immer wider leer sind und neu synchronisiert werden. nix sollte die vsc settings nicht überschreiben.
 
+- [x] Iinia
 - home-manager, derivate, homebrew?
 - Node, PNPM?
 - LittleSnitch

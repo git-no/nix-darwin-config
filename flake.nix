@@ -78,7 +78,6 @@
       ];
     };
 
-
     # nix code formatter
     formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
   };
