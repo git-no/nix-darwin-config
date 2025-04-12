@@ -18,7 +18,7 @@
 
     # TODO replace with your own name & email
     userName = "git-no";
-    userEmail = "github.ita@iomio.me";
+    userEmail = "git-no@users.noreply.github.com";
 
     ignores = [ ".DS_Store" ];
     # includes = [

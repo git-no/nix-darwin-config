@@ -1,93 +1,4 @@
-# Nix Darwin Configuration
-
-Next steps:
-⁃ To add Homebrew to your PATH, add to your shell profile (e.g. ~/.bash_profile or ~/.zprofile):
-⁃ eval "$(/opt/homebrew/bin/brew shellenv)" on Apple Silicon
-	⁃	eval "$(/usr/local/bin/brew shellenv)" on Intel
-⁃ Run brew help to get started
-⁃ Further documentation:
-
-Install xcode
-https://brew.sh
-
-- mitteilugnszentrale
-- [ ] system config Tastatur Kurzbefehle
-- [ ] screensaver
-- [ ] Wetter in Menuleiste, Siri in Menuleiste ausblenden
-- [ ] control center shortcut
-- [ ] .dot files https://davi.sh/blog/2024/02/nix-home-manager/
-- [ ] config fiels als files spiegeln und nicht als Text in config file
-- [ ] apps (VSC, Obsidian, Windows App) -> kontrollieren ob in App Übersich angezeigt werden, mit Obsidian anfangen
-
-- [ ] app config verzeichnisse
-- [ ] verschiedene user und systeme
-- [ ] secrets, ssh key sichern, z.B. github autororisierung per ssh, und known systems
-- [ ] alles was in user verzeichnis als . liegt weg sichern
-- [x] Darwin system config (maus etc.)
-      bei vsc darauf achten das settings bei switch nciht immer wider leer sind und neu synchronisiert werden. nix sollte die vsc settings nicht überschreiben.
-
-- [x] Iinia
-- home-manager, derivate, homebrew?
-- Node, PNPM?
-- LittleSnitch
-- Windows App RDP
-- Tower
-- 1Password
-- MonitorControl
-- Unarchiver
-- AppCleaner
-- A better Finder Rename
-- AutioBookBuilder
-- VSCode
-- MS Teams
-- Postman/Insomnia?
-- PHiewer
-- Transmit FTP
-- Mindjet Mindmanager
-- Proton?
-- Steuern
-- was mit brew installiert
-- napp
-- Screensaver fliqlo
-
-Wie gut einen Überblick über Installation und Konfiguration bekommen (welche Apps, welche system einstellungen, welche .dot files)
-
-## Einrichtungen
-
-- xcode
-- icloud + sync
-- nix
-
-- git account, github
-- vsc, und flake formater
-- zsh und dot files
-
-- icloud
-- Apple Wallet/Pay
-
-## Dateistruktur
-
-checks/ for flake checks.
-devshells/ for devshells.
-hosts/ for machine configurations.
-hosts/\*/users/ for Home Manager configurations.
-lib/ for Nix functions.
-modules/ for NixOS and other modules.
-packages/ for packages.
-templates/ for flake templates.
-devshell.nix for the default devshell
-formatter.nix for the default formatter
-package.nix for the default package
-
-```bash
-darwin-rebuild switch --flake .
-```
-
-Durch zsh Shortcut reicht jetzt auch aus
-
-```bash
-switch
-```
+# My personal Nix Darwin Configuration
 
 Basierend auf:
 https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo
@@ -96,13 +7,14 @@ https://github.com/dustinlyons/nixos-config/blob/main
 
 ## How to Use
 
+1. Install xcode
 1. Install Nix package manager via [Nix Official](https://nixos.org/download.html#nix-install-macos) or [DeterminateSystems/nix-installer](https://github.com/DeterminateSystems/nix-installer).
-2. Read all the files in this `minimal` folder, and understand what they do.
+1. Read all the files in this `minimal` folder, and understand what they do.
    1. If you have trouble understanding, [ryan4yin/nixos-and-flakes-book](https://github.com/ryan4yin/nixos-and-flakes-book) is a good resource to learn nix and flakes.
-3. Install Homebrew, see <https://brew.sh/>
+1. Install Homebrew, see <https://brew.sh/>
    1. Homebrew is required to install most of the GUI apps, App Store's apps, and some CLI apps that are not available in nix's package repository `nixpkgs`.
-4. Search `TODO` in this `minimal` folder, and complete all the TODOs.
-5. Run the following command in the root of your nix configuration to start your nix-darwin journey(please change `hostname` to your hostname):
+1. Search `TODO` in this `minimal` folder, and complete all the TODOs.
+1. Run the following command in the root of your nix configuration to start your nix-darwin journey(please change `hostname` to your hostname):
 
    ```bash
    nix build .#darwinConfigurations.hostname.system \
@@ -123,6 +35,16 @@ deploy:
 ```
 
 Then you can run `make deploy` in the root of your nix configuration to deploy your configuration.
+
+```bash
+darwin-rebuild switch --flake .
+```
+
+Durch zsh Shortcut reicht jetzt auch aus
+
+```bash
+switch
+```
 
 ## Configuration Structure
 
@@ -150,3 +72,101 @@ Please refer to the `rich-demo` folder for more details:
 - [rich-demo/scripts/darwin_set_proxy.py](/rich-demo/scripts/darwin_set_proxy.py)
 - [rich-demo/Makefile](/rich-demo/Makefile)
 - [rich-demo - homebrew's mirror settings](/rich-demo/modules/homebrew-mirror.nix)
+
+## Alternative Dateistruktur
+
+checks/ for flake checks.
+devshells/ for devshells.
+hosts/ for machine configurations.
+hosts/\*/users/ for Home Manager configurations.
+lib/ for Nix functions.
+modules/ for NixOS and other modules.
+packages/ for packages.
+templates/ for flake templates.
+devshell.nix for the default devshell
+formatter.nix for the default formatter
+package.nix for the default package
+
+## TODO
+
+- git config
+- github ssl clone
+- code dir
+
+Next steps:
+⁃ To add Homebrew to your PATH, add to your shell profile (e.g. ~/.bash_profile or ~/.zprofile):
+⁃ eval "$(/opt/homebrew/bin/brew shellenv)" on Apple Silicon
+	⁃	eval "$(/usr/local/bin/brew shellenv)" on Intel
+⁃ Run brew help to get started
+⁃ Further documentation:
+
+Install xcode
+https://brew.sh
+ssh public key einrichten
+
+- mitteilugnszentrale
+- [ ] system config Tastatur Kurzbefehle
+- [ ] screensaver
+- [ ] Wetter in Menuleiste, Siri in Menuleiste ausblenden
+- [ ] control center shortcut
+- [ ] .dot files https://davi.sh/blog/2024/02/nix-home-manager/
+- [ ] config fiels als files spiegeln und nicht als Text in config file
+- [ ] apps (VSC, Obsidian, Windows App) -> kontrollieren ob in App Übersich angezeigt werden, mit Obsidian anfangen
+
+- [ ] app config verzeichnisse
+- [ ] verschiedene user und systeme
+- [ ] secrets, ssh key sichern, z.B. github autororisierung per ssh, und known systems
+- [ ] alles was in user verzeichnis als . liegt weg sichern
+- [x] Darwin system config (maus etc.)
+      bei vsc darauf achten das settings bei switch nciht immer wider leer sind und neu synchronisiert werden. nix sollte die vsc settings nicht überschreiben.
+
+recherchieren wir setzen/übernehmen
+
+- Transmit Einstellungen setzen
+- proton Enstellungen
+- windows-app einstellungen, verbindungen
+- fliq einstellungen
+- proton
+
+- [x] Iinia
+- [x] home-manager, derivate, homebrew?
+- [x] Screensaver fliqlo
+- [x] LittleSnitch + AdBlocker https://www.obdev.at/products/littlesnitch-mini/blocklists.html?ref=nelson.cloud
+- [x] Windows App RDP + exportierte Profile
+- [x] Tower
+- [x] 1Password
+- [x] AppCleaner
+- [x] MS Teams
+- [x] Transmit FTP
+- [x] Proton?
+- [x] Ice + Konfiguration
+- [ ] VSCode !!!!!!!!!!!!!!!!!!!!!!!!!!!!! todo
+- [x] MonitorControl
+- Node, PNPM?
+- Unarchiver
+- A better Finder Rename
+- AutioBookBuilder
+- Postman/Insomnia?
+- PHiewer
+- Mindjet Mindmanager
+- Steuern
+- napp
+
+### Einstellungen
+
+- Systemseuerung/Bedingungshilfen/SCroll Geste mit Sondertaste zum zoomen verwenden
+
+Wie gut einen Überblick über Installation und Konfiguration bekommen (welche Apps, welche system einstellungen, welche .dot files)
+
+## Einrichtungen
+
+- xcode
+- icloud + sync
+- nix
+
+- git account, github
+- vsc, und flake formater
+- zsh und dot files
+
+- icloud
+- Apple Wallet/Pay
