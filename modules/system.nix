@@ -62,7 +62,7 @@
         static-only = false;
         mru-spaces = false;
         show-recents = true;
-        wvous-bl-corner = 13; # https://nix-darwin.github.io/nix-darwin/manual/index.html#opt-system.defaults.dock.wvous-bl-corner
+        wvous-bl-corner = 5; # https://nix-darwin.github.io/nix-darwin/manual/index.html#opt-system.defaults.dock.wvous-bl-corner
       };
 
       screensaver = {

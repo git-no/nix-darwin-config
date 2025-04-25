@@ -122,12 +122,15 @@ ssh public key einrichten
 
 recherchieren wir setzen/übernehmen
 
+
 - Transmit Einstellungen setzen
 - proton Enstellungen
 - windows-app einstellungen, verbindungen
 - fliq einstellungen
 - proton
 
+
+fd https://github.com/sharkdp/fd
 - [x] Iinia
 - [x] home-manager, derivate, homebrew?
 - [x] Screensaver fliqlo

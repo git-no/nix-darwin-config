@@ -30,9 +30,13 @@
     
     # updates homebrew packages on activation,
     # can make darwin-rebuild much slower (otherwise i'd forget to do it ever though)
+    
+    onActivation.autoUpdate = true;
     onActivation.upgrade = true;
+    # onActivation.cleanup = "uninstall";
     
     taps = [
+      "oven-sh/bun" 
     ];
     brews = [];
 
@@ -58,6 +62,7 @@
       "transmit"
       "windows-app"
       "visual-studio-code"
+      "usenapp"
     ];
   };
 }
