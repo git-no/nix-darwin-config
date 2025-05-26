@@ -56,6 +56,7 @@
       "little-snitch"
       "microsoft-teams"
       "monitorcontrol"
+      "onedrive"
       "proton-pass"
       "protonvpn"
       "tower"
