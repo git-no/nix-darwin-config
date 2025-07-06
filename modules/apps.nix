@@ -1,4 +1,5 @@
-{ pkgs, ...}: {
+{ pkgs, ... }:
+{
 
   ##########################################################################
   #
@@ -27,18 +28,18 @@
   # But on macOS, homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
   homebrew = {
     enable = true;
-    
+
     # updates homebrew packages on activation,
     # can make darwin-rebuild much slower (otherwise i'd forget to do it ever though)
-    
+
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
     # onActivation.cleanup = "uninstall";
-    
+
     taps = [
-      "oven-sh/bun" 
+      "oven-sh/bun"
     ];
-    brews = [];
+    brews = [ ];
 
     # https://formulae.brew.sh
     casks = [
@@ -57,8 +58,14 @@
       "microsoft-teams"
       "monitorcontrol"
       "onedrive"
-      "proton-pass"
-      "protonvpn"
+      {
+        name = "proton-pass";
+        greedy = true;
+      }
+      {
+        name = "protonvpn";
+        greedy = true;
+      }
       "tower"
       "transmit"
       "windows-app"

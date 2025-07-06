@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -7,11 +8,12 @@
     # '';
   };
 
-
   # Füge Node.js zu den Home-Paketen hinzu
   home.packages = with pkgs; [
     nodejs # Standard-Node.js-Version
     bun
+    pnpm
+    nixfmt-rfc-style
     # nodejs-18_x # Alternativ: spezifische Node.js-Version
   ];
 

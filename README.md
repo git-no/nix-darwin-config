@@ -48,6 +48,15 @@ Durch zsh Shortcut reicht jetzt auch aus
 switch
 ```
 
+## Upgrade nix determine
+
+Manually from time to time
+
+``bash
+sudo determinate-nixd upgrade
+
+````
+
 ## Configuration Structure
 
 Your current nix-darwin configuration's structure should be as follows:
@@ -63,7 +72,7 @@ Your current nix-darwin configuration's structure should be as follows:
 │   ├── nix-core.nix    # nix's core configuration, you can ignore it for now
 │   └── system.nix      # defines your macOS's system configuration(like dock, trackpad, keyboard, finder, loginwindow, etc.)
 └── README.md
-```
+````
 
 ## Notes on Network Proxy
 
