@@ -57,6 +57,13 @@ sudo determinate-nixd upgrade
 
 ````
 
+## Brew cask
+
+```bash
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew upgrade --greedy
+````
+
 ## Configuration Structure
 
 Your current nix-darwin configuration's structure should be as follows:
@@ -72,7 +79,7 @@ Your current nix-darwin configuration's structure should be as follows:
 │   ├── nix-core.nix    # nix's core configuration, you can ignore it for now
 │   └── system.nix      # defines your macOS's system configuration(like dock, trackpad, keyboard, finder, loginwindow, etc.)
 └── README.md
-````
+```
 
 ## Notes on Network Proxy
 

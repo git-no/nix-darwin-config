@@ -31,10 +31,11 @@
 
     # updates homebrew packages on activation,
     # can make darwin-rebuild much slower (otherwise i'd forget to do it ever though)
-
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
-    # onActivation.cleanup = "uninstall";
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "uninstall";
+    };
 
     taps = [
       "oven-sh/bun"
@@ -66,8 +67,11 @@
         name = "protonvpn";
         greedy = true;
       }
+      {
+        name = "transmit";
+        greedy = true;
+      }
       "tower"
-      "transmit"
       "windows-app"
       "visual-studio-code"
       "usenapp"
