@@ -19,7 +19,7 @@
     };
     # shellenv
 
-    initExtra = ''
+    initContent = ''
       # Setup the brew package manager for GUI apps
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';

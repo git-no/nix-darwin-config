@@ -42,6 +42,12 @@ Then you can run `make deploy` in the root of your nix configuration to deploy y
 darwin-rebuild switch --flake .
 ```
 
+Update
+```bash
+nix flake update
+```
+
+
 Durch zsh Shortcut reicht jetzt auch aus
 
 ```bash
