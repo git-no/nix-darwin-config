@@ -1,11 +1,5 @@
 # My personal Nix Darwin Configuration
 
-https://formulae.brew.sh
-
-Basierend auf:
-https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo
-
-https://github.com/dustinlyons/nixos-config/blob/main
 
 ## How to Use
 
@@ -42,11 +36,11 @@ Then you can run `make deploy` in the root of your nix configuration to deploy y
 darwin-rebuild switch --flake .
 ```
 
-Update
+## Update
+
 ```bash
 nix flake update
 ```
-
 
 Durch zsh Shortcut reicht jetzt auch aus
 
@@ -58,10 +52,9 @@ switch
 
 Manually from time to time
 
-``bash
+```bash
 sudo determinate-nixd upgrade
-
-````
+```
 
 ## Brew cask
 
@@ -110,6 +103,15 @@ templates/ for flake templates.
 devshell.nix for the default devshell
 formatter.nix for the default formatter
 package.nix for the default package
+
+## Links 
+
+https://formulae.brew.sh
+
+Basierend auf:
+https://github.com/ryan4yin/nix-darwin-kickstarter/blob/main/rich-demo
+
+https://github.com/dustinlyons/nixos-config/blob/main
 
 ## TODO
 
