@@ -49,16 +49,46 @@
       # "alfred"
       # "logseq"
       # "discord"
-      "1password"
-      "appcleaner"
-      "fliqlo"
-      "fluor"
-      "iina"
-      "jordanbaird-ice"
-      "little-snitch"
-      "microsoft-teams"
-      "monitorcontrol"
-      "onedrive"
+      {
+        name = "1password";
+        greedy = true;
+      }
+      {
+        name = "appcleaner";
+        greedy = true;
+      }
+      {
+        name = "fliqlo";
+        greedy = true;
+      }
+      {
+        name = "fluor";
+        greedy = true;
+      }
+      {
+        name = "iina";
+        greedy = true;
+      }
+      {
+        name = "jordanbaird-ice";
+        greedy = true;
+      }
+      {
+        name = "little-snitch";
+        greedy = true;
+      }
+      {
+        name = "microsoft-teams";
+        greedy = true;
+      }
+      {
+        name = "monitorcontrol";
+        greedy = true;
+      }
+      {
+        name = "onedrive";
+        greedy = true;
+      }
       {
         name = "proton-pass";
         greedy = true;
@@ -71,10 +101,22 @@
         name = "transmit";
         greedy = true;
       }
-      "tower"
-      "windows-app"
-      "visual-studio-code"
-      "usenapp"
+      {
+        name = "tower";
+        greedy = true;
+      }
+      {
+        name = "windows-app";
+        greedy = true;
+      }
+      {
+        name = "visual-studio-code";
+        greedy = true;
+      }
+      {
+        name = "usenapp";
+        greedy = true;
+      }
     ];
   };
 }
