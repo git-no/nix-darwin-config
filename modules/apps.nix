@@ -69,13 +69,13 @@
         name = "iina";
         greedy = true;
       }
-      {
-        name = "jordanbaird-ice";
-        greedy = true;
-      }
+      # {
+      #   name = "jordanbaird-ice";
+      #   greedy = true;
+      # }
       {
         name = "little-snitch";
-        greedy = true;
+        # greedy = true;
       }
       {
         name = "microsoft-teams";
@@ -115,6 +115,10 @@
       }
       {
         name = "usenapp";
+        greedy = true;
+      }
+      {
+        name = "lm-studio";
         greedy = true;
       }
     ];
