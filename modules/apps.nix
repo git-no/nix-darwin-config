@@ -49,10 +49,10 @@
       # "alfred"
       # "logseq"
       # "discord"
-      {
-        name = "1password";
-        greedy = true;
-      }
+      # {
+      #   name = "1password";
+      #   greedy = true;
+      # }
       {
         name = "appcleaner";
         greedy = true;
