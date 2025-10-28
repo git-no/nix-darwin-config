@@ -73,10 +73,10 @@
       #   name = "jordanbaird-ice";
       #   greedy = true;
       # }
-      {
-        name = "little-snitch";
-        # greedy = true;
-      }
+      # {
+      #   name = "little-snitch";
+      #   # greedy = true;
+      # }
       {
         name = "microsoft-teams";
         greedy = true;
