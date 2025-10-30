@@ -33,13 +33,14 @@ deploy:
 Then you can run `make deploy` in the root of your nix configuration to deploy your configuration.
 
 ```bash
-darwin-rebuild switch --flake .
+sudo darwin-rebuild switch --flake .
 ```
 
 ## Update
 
 ```bash
 nix flake update
+sudo darwin-rebuild switch --flake .
 ```
 
 Durch zsh Shortcut reicht jetzt auch aus

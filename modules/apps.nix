@@ -86,6 +86,10 @@
         greedy = true;
       }
       {
+        name = "obsidian";
+        greedy = true;
+      }
+      {
         name = "onedrive";
         greedy = true;
       }
