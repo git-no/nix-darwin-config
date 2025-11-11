@@ -58,6 +58,10 @@
         greedy = true;
       }
       {
+        name = "docker";
+        greedy = true;
+      }
+      {
         name = "fliqlo";
         greedy = true;
       }
@@ -69,10 +73,10 @@
         name = "iina";
         greedy = true;
       }
-      # {
-      #   name = "jordanbaird-ice";
-      #   greedy = true;
-      # }
+      {
+        name = "jordanbaird-ice";
+        greedy = true;
+      }
       # {
       #   name = "little-snitch";
       #   # greedy = true;
