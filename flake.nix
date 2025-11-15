@@ -9,11 +9,15 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     darwin = {
       url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     # home-manager, used for managing user configuration
@@ -25,6 +29,7 @@
       # to avoid problems caused by different versions of nixpkgs dependencies.
     };
 
+    # Utilities for Mac App launchers
     mac-app-util.url = "github:hraban/mac-app-util";
 
   };
@@ -44,6 +49,7 @@
       ...
     }:
     let
+      stateVersion = "24.11";
       # TODO replace with your own username, system and hostname
       username = "lukas";
       hostname = "BettyBlue";
@@ -57,11 +63,11 @@
       darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
         inherit system specialArgs;
         modules = [
-          ./modules/nix-core.nix
-          ./modules/system.nix
-          ./modules/apps.nix
+          ./old/modules/nix-core.nix
+          ./old/modules/system.nix
+          ./old/modules/apps.nix
           # ./modules/homebrew-mirror.nix
-          ./modules/host-users.nix
+          ./old/modules/host-users.nix
 
           mac-app-util.darwinModules.default
 
@@ -79,7 +85,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.${username} = import ./home-manager;
+            home-manager.users.${username} = import ./old/home-manager;
             home-manager.sharedModules = [
               mac-app-util.homeManagerModules.default
             ];

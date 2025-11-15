@@ -218,8 +218,6 @@ Einrichtungen
 - icloud
 - Apple Wallet/Pay
 
-- bun
-
 
 [1]:https://nixos.org/download.html#nix-install-macos
 [2]:https://github.com/DeterminateSystems/nix-installer

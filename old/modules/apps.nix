@@ -53,6 +53,7 @@
       #   name = "1password";
       #   greedy = true;
       # }
+      "ghostty"
       {
         name = "appcleaner";
         greedy = true;
