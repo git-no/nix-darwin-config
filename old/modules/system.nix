@@ -73,6 +73,10 @@
         mru-spaces = false;
         show-recents = true;
         wvous-bl-corner = 5; # https://nix-darwin.github.io/nix-darwin/manual/index.html#opt-system.defaults.dock.wvous-bl-corner
+        persistent-apps = [
+          "/Applications/Safari.app"
+          "/Applications/Ghostty.app"
+        ];
       };
 
       screensaver = {

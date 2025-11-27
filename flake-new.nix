@@ -1,4 +1,5 @@
 {
+  # source: https://github.com/ironicbadger/nix-config/blob/main/flake.nix
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";

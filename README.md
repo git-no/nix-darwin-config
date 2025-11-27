@@ -217,6 +217,7 @@ Einrichtungen
 
 - icloud
 - Apple Wallet/Pay
+- App/Power Nap in Batterie
 
 
 [1]:https://nixos.org/download.html#nix-install-macos
