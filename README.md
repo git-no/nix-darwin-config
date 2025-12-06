@@ -218,7 +218,7 @@ Einrichtungen
 - icloud
 - Apple Wallet/Pay
 - App/Power Nap in Batterie
-
+- BetterDisplay Pro
 
 [1]:https://nixos.org/download.html#nix-install-macos
 [2]:https://github.com/DeterminateSystems/nix-installer
