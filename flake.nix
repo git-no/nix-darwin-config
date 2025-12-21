@@ -1,99 +1,101 @@
 {
-  description = "Nix Darwin configuration for macOS";
-
-  # the nixConfig here only affects the flake itself, not the system configuration!
-  nixConfig = {
-    substituters = [
-      "https://cache.nixos.org"
-    ];
-  };
-
+  # source: https://github.com/ironicbadger/nix-config/blob/main/flake.nix
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    darwin = {
+    nix-darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
-    # home-manager, used for managing user configuration
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with the `inputs.nixpkgs` of the current flake,
       # to avoid problems caused by different versions of nixpkgs dependencies.
-    };
+    }
+
 
     # Utilities for Mac App launchers
-    mac-app-util.url = "github:hraban/mac-app-util";
+    # mac-app-util.url = "github:hraban/mac-app-util";
 
-  };
+    # Secret management with sops-nix
+    # sops-nix = {
+    #   url = "github:Mic92/sops-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+  }
 
-  # The `outputs` function will return all the build results of the flake.
-  # A flake can have many use cases and different types of outputs,
-  # parameters in `outputs` are defined in `inputs` and can be referenced by their names.
-  # However, `self` is an exception, this special parameter points to the `outputs` itself (self-reference)
-  # The `@` syntax here is used to alias the attribute set of the inputs's parameter, making it convenient to use inside the function.
+
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      darwin,
-      home-manager,
-      mac-app-util,
-      ...
-    }:
+    { ... }@inputs:
+    with inputs;
     let
-      stateVersion = "24.11";
-      # TODO replace with your own username, system and hostname
-      username = "lukas";
-      hostname = "BettyBlue";
-      system = "aarch64-darwin"; # aarch64-darwin or x86_64-darwin
+      inherit (self) outputs;
 
-      specialArgs = inputs // {
-        inherit username hostname;
-      };
+      stateVersion = "25.11";
+      libx = import ./new/lib { inherit inputs outputs stateVersion; };
+
     in
     {
-      darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
-        inherit system specialArgs;
-        modules = [
-          ./old/modules/nix-core.nix
-          ./old/modules/system.nix
-          ./old/modules/apps.nix
-          # ./modules/homebrew-mirror.nix
-          ./old/modules/host-users.nix
 
-          mac-app-util.darwinModules.default
+      darwinConfigurations = {
+        # personal
+        betty-blue = libx.mkDarwin { hostname = "BettyBlue"; };
+        wilde13 = libx.mkDarwin { hostname = "wilde13"; };
 
-          # home manager
-          (
-            { pkgs, ... }:
-            {
-              system.primaryUser = "lukas";
-              # Weitere Konfigurationen...
-            }
-          )
-
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.${username} = import ./old/home-manager;
-            home-manager.sharedModules = [
-              mac-app-util.homeManagerModules.default
-            ];
-          }
-        ];
+        # work
       };
 
-      # nix code formatter
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+      colmena = {
+        meta = {
+          nixpkgs = import inputs.nixpkgs { system = "x86_64-linux"; };
+          specialArgs = {
+            inherit
+              inputs
+              outputs
+              stateVersion
+              self
+              ;
+          };
+        };
+
+        defaults =
+          {
+            lib,
+            config,
+            name,
+            ...
+          }:
+          {
+            imports = [
+              inputs.home-manager.nixosModules.home-manager
+            ];
+          };
+
+        # wd
+        # morphnix = import ./new/hosts/nixos/morphnix;
+        # nvllama = import ./new/hosts/nixos/nvllama;
+
+        # test system
+        # yeager = nixosSystem "x86_64-linux" "yeager" "alex";
+      };
     };
-}
+
+};

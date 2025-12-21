@@ -7,7 +7,7 @@
   ...
 }:
 {
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.11";
 
   # list of programs
   # https://mipmip.github.io/home-manager-option-search
