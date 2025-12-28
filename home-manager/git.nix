@@ -3,12 +3,13 @@
   username,
   useremail,
   ...
-}: {
+}:
+{
   # `programs.git` will generate the config file: ~/.config/git/config
   # to make git use this config file, `~/.gitconfig` should not exist!
   #
   #    https://git-scm.com/docs/git-config#Documentation/git-config.txt---global
-  home.activation.removeExistingGitconfig = lib.hm.dag.entryBefore ["checkLinkTargets"] ''
+  home.activation.removeExistingGitconfig = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
     rm -f ~/.gitconfig
   '';
 
@@ -57,6 +58,7 @@
       cm = "commit -m";
       ca = "commit -am";
       dc = "diff --cached";
+      rb = "rebase origin main";
       amend = "commit --amend -m";
 
       # aliases for submodule

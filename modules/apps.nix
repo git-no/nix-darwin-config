@@ -65,8 +65,12 @@
         name = "fliqlo";
         greedy = true;
       }
+      # {
+      #   name = "fluor";
+      #   greedy = true;
+      # }
       {
-        name = "fluor";
+        name = "ghostty";
         greedy = true;
       }
       {
@@ -125,10 +129,9 @@
         name = "usenapp";
         greedy = true;
       }
-      {
-        name = "lm-studio";
-        greedy = true;
-      }
+      # {
+      #   name = "lm-studio";
+      # }
     ];
   };
 }

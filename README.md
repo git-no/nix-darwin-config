@@ -1,20 +1,31 @@
 My personal Nix Darwin Configuration
 ====================================
 
-nix system configuration
-Homemanager maintenance dot-files
+Nix-Darwin with Flake files for:
+
+- macOS system configuration (by Nix-Darwin)
+- User specific configuration (by Home Manager)
 
 How to Use
 ----------
 
 1. [Installation](#installation)
 1. [Update](#update)
+1. [Adoption](#adoption)
 
 Installation
 ------------
 
+A new computer setup.
+
 1. Install xcode
 1. Install Nix package manager via [DeterminateSystems][2] or `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install` with Option/Question "Install Determinate Nix" => NO!
+1. Save this prepared configuration to ~/.nix-config.
+Maintain a git repo for version control.
+
+---
+
+
 1. Read all the files in this `minimal` folder, and understand what they do.
    1. If you have trouble understanding, [ryan4yin/nixos-and-flakes-book][3] is a good resource to learn nix and flakes.
 1. Install Homebrew, see <https://brew.sh/>
@@ -203,6 +214,45 @@ Einstellungen
 - Systemseuerung/Bedingungshilfen/SCroll Geste mit Sondertaste zum zoomen verwenden
 
 Wie gut einen Überblick über Installation und Konfiguration bekommen (welche Apps, welche system einstellungen, welche .dot files)
+
+Adoption
+------------
+
+Use this as a base and modify the configuration for other environements.
+
+1. Install xcode
+1. Install Nix package manager via [DeterminateSystems][2] or `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install` with Option/Question "Install Determinate Nix" => NO!
+1. Read all the files in this `minimal` folder, and understand what they do.
+   1. If you have trouble understanding, [ryan4yin/nixos-and-flakes-book][3] is a good resource to learn nix and flakes.
+1. Install Homebrew, see <https://brew.sh/>
+   1. Homebrew is required to install most of the GUI apps, App Store's apps, and some CLI apps that are not available in nix's package repository `nixpkgs`.
+1. Search `TODO` in this `minimal` folder, and complete all the TODOs.
+1. Run the following command in the root of your nix configuration to start your nix-darwin journey(please change `hostname` to your hostname):
+
+   ```bash
+   nix build .#darwinConfigurations.hostname.system \
+      --extra-experimental-features 'nix-command flakes'
+
+   ./result/sw/bin/darwin-rebuild switch --flake .#hostname
+   ```
+
+   To simplify the command, adding the following content by create a `Makefile` in the root of your nix configuration:
+
+   ```makefile
+   # please change 'hostname' to your hostname
+   deploy:
+      nix build .#darwinConfigurations.hostname.system \
+         --extra-experimental-features 'nix-command flakes'
+
+      ./result/sw/bin/darwin-rebuild switch --flake .#hostname
+   ```
+
+   Then you can run `make deploy` in the root of your nix configuration to deploy your configuration.
+
+   ```bash
+   sudo darwin-rebuild switch --flake .
+   ```
+
 
 Einrichtungen
 -------------
