@@ -47,12 +47,12 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.users.alex = {
-    imports = [ ./../../../home/alex.nix ];
+  home-manager.users.lukas = {
+    imports = [ ./../../../home/lukas.nix ];
   };
-  users.users.alex = {
+  users.users.lukas = {
     isNormalUser = true;
-    description = "alex";
+    description = "lukas";
     extraGroups = [
       "wheel"
       "docker"

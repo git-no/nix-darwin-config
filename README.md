@@ -51,7 +51,7 @@ Update
 
    ```bash
    nix flake update
-   sudo darwin-rebuild switch --flake .
+   sudo darwin-rebuild switch --flake ."#" # oder ."#host-config-name"
    ```
 
 Durch zsh Shortcut reicht jetzt auch aus

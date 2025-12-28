@@ -18,7 +18,7 @@ in
     # ansible
     # btop
     # coreutils
-    # diffr # Modern Unix `diff`
+    diffr # Modern Unix `diff`
     # difftastic # Modern Unix `diff`
     # drill
     # dust # Modern Unix `du`

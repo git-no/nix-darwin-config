@@ -16,7 +16,7 @@ in
   # home-manager = {
   #     useGlobalPkgs = true;
   #     useUserPackages = true;
-  #     users.alex = import ../../../home/lukas.nix;
+  #     users.lukas = import ../../../home/lukas.nix;
   # };
 
   virtualisation = {

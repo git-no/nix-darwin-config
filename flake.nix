@@ -29,7 +29,7 @@
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with the `inputs.nixpkgs` of the current flake,
       # to avoid problems caused by different versions of nixpkgs dependencies.
-    }
+    };
 
     # Secret management with sops-nix
     sops-nix = {
@@ -39,8 +39,7 @@
 
     # Utilities for Mac App launchers
     # mac-app-util.url = "github:hraban/mac-app-util";
-  }
-
+  };
 
   outputs =
     { ... }@inputs:
@@ -96,5 +95,4 @@
         # yeager = nixosSystem "x86_64-linux" "yeager" "alex";
       };
     };
-
-};
+}

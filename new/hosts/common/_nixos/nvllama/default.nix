@@ -10,7 +10,7 @@
   imports = [
     inputs.sops-nix.nixosModules.sops
     ./hardware-configuration.nix
-    #./../../../home/alex.nix
+    ./../../../home/lukas.nix
     ./../../common/nixos-common.nix
     ./../../common/common-packages.nix
     #./beszel.nix
@@ -90,12 +90,12 @@
   # userland
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.users.alex = {
-    imports = [ ./../../../home/alex.nix ];
+  home-manager.users.lukas = {
+    imports = [ ./../../../home/lukas.nix ];
   };
-  users.users.alex = {
+  users.users.lukas = {
     isNormalUser = true;
-    description = "alex";
+    description = "lukas";
     extraGroups = [
       "networkmanager"
       "wheel"
