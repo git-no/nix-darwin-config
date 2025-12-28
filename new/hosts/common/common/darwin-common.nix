@@ -38,25 +38,25 @@ in
 
   environment.systemPackages = with pkgs; [
     ## unstable
-    unstablePkgs.yt-dlp
-    unstablePkgs.get_iplayer
-    unstablePkgs.colmena
+    # unstablePkgs.yt-dlp
+    # unstablePkgs.get_iplayer
+    # unstablePkgs.colmena
 
     ## stable CLI
-    pkgs.comma
-    pkgs.hcloud
-    pkgs.just
-    pkgs.lima
-    pkgs.nix
-    pkgs.nodejs
-    pkgs.pass
+    # pkgs.comma
+    # pkgs.hcloud
+    # pkgs.just
+    # pkgs.lima
+    # pkgs.nix
+    # pkgs.nodejs
+    # pkgs.pass
   ];
 
   fonts.packages = [
-    pkgs.nerd-fonts.fira-code
-    pkgs.nerd-fonts.fira-mono
-    pkgs.nerd-fonts.hack
-    pkgs.nerd-fonts.jetbrains-mono
+    # pkgs.nerd-fonts.fira-code
+    # pkgs.nerd-fonts.fira-mono
+    # pkgs.nerd-fonts.hack
+    # pkgs.nerd-fonts.jetbrains-mono
   ];
 
   # pins to stable as unstable updates very often
@@ -76,7 +76,7 @@ in
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    promptInit = builtins.readFile ./../../data/mac-dot-zshrc;
+    # promptInit = builtins.readFile ./../../data/mac-dot-zshrc;
   };
 
   homebrew = {

@@ -31,15 +31,14 @@
       # to avoid problems caused by different versions of nixpkgs dependencies.
     }
 
+    # Secret management with sops-nix
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Utilities for Mac App launchers
     # mac-app-util.url = "github:hraban/mac-app-util";
-
-    # Secret management with sops-nix
-    # sops-nix = {
-    #   url = "github:Mic92/sops-nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   }
 
 
