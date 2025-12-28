@@ -25,7 +25,7 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     # https://nixos.org/manual/nixos/unstable/release-notes
-    stateVersion = "24.11";
+    stateVersion = "24.05";
   };
 
   home.packages = with pkgs; [
