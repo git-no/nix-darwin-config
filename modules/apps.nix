@@ -58,17 +58,17 @@
         greedy = true;
       }
       {
-        name = "docker";
+        name = "docker-desktop";
         greedy = true;
       }
       {
         name = "fliqlo";
         greedy = true;
       }
-      # {
-      #   name = "fluor";
-      #   greedy = true;
-      # }
+      {
+        name = "fluor";
+        greedy = true;
+      }
       {
         name = "ghostty";
         greedy = true;
