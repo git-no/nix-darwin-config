@@ -26,7 +26,7 @@
   #
   # The apps installed by homebrew are not managed by nix, and not reproducible!
   # But on macOS, homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
-  homebrew = {
+     = {
     enable = true;
 
     # updates homebrew packages on activation,
@@ -57,13 +57,17 @@
         name = "appcleaner";
         greedy = true;
       }
-      {
-        name = "docker-desktop";
-        greedy = true;
-      }
+      # {
+      # better use podman
+      #   name = "docker-desktop";
+      #   greedy = true;
+      # }
       {
         name = "fliqlo";
         greedy = true;
+      }
+      {
+        name = "flowvision";
       }
       {
         name = "fluor";
