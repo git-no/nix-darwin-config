@@ -25,7 +25,6 @@ Maintain a git repo for version control.
 
 ---
 
-
 1. Read all the files in this `minimal` folder, and understand what they do.
    1. If you have trouble understanding, [ryan4yin/nixos-and-flakes-book][3] is a good resource to learn nix and flakes.
 1. Install Homebrew, see <https://brew.sh/>
@@ -71,7 +70,8 @@ Durch zsh Shortcut reicht jetzt auch aus
    switch
    ```
 
-### Upgrade nix determine
+Upgrade nix determine
+---------------------
 
 Manually from time to time
 
@@ -79,12 +79,22 @@ Manually from time to time
    sudo determinate-nixd upgrade
    ```
 
-### Brew cask
+Brew cask
+---------
 
    ```bash
    eval "$(/opt/homebrew/bin/brew shellenv)"
    brew upgrade --greedy
    ````
+
+Bun upgrade
+-----------
+
+```bash
+nix flake update
+darwin-rebuild switch --flake .
+sudo darwin-rebuild switch --flake .
+```
 
 Configuration Structure
 -----------------------
