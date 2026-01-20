@@ -106,6 +106,10 @@
         greedy = true;
       }
       {
+        name = "onlyoffice";
+        greedy = true;
+      }
+      {
         name = "proton-pass";
         greedy = true;
       }

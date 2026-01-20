@@ -58,7 +58,7 @@
       cm = "commit -m";
       ca = "commit -am";
       dc = "diff --cached";
-      rb = "rebase origin main";
+      rb = "rebase origin/main";
       amend = "commit --amend -m";
 
       # aliases for submodule
