@@ -63,6 +63,10 @@
       #   greedy = true;
       # }
       {
+        name = "expressvpn";
+        greedy = true;
+      }
+      {
         name = "fliqlo";
         greedy = true;
       }
