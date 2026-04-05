@@ -87,7 +87,7 @@
         greedy = true;
       }
       {
-        name = "jordanbaird-ice";
+        name = "thaw";
         greedy = true;
       }
       # {
@@ -96,6 +96,10 @@
       # }
       {
         name = "microsoft-teams";
+        greedy = true;
+      }
+      {
+        name = "mole";
         greedy = true;
       }
       {
