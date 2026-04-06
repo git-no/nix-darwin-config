@@ -25,12 +25,12 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     # https://nixos.org/manual/nixos/unstable/release-notes
-    stateVersion = "24.05";
+    stateVersion = "25.05";
   };
 
   home.packages = with pkgs; [
     # vscode,
-    obsidian
+    # obsidian
   ];
 
   # Let Home Manager install and manage itself.

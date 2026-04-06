@@ -40,7 +40,9 @@
     taps = [
       "oven-sh/bun"
     ];
-    brews = [ ];
+    brews = [
+      "mole"
+    ];
 
     # https://formulae.brew.sh
     casks = [
@@ -53,6 +55,10 @@
       #   name = "1password";
       #   greedy = true;
       # }
+      {
+        name = "anytype";
+        greedy = true;
+      }
       {
         name = "appcleaner";
         greedy = true;
@@ -96,10 +102,6 @@
       # }
       {
         name = "microsoft-teams";
-        greedy = true;
-      }
-      {
-        name = "mole";
         greedy = true;
       }
       {

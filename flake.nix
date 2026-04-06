@@ -9,16 +9,16 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:Nixos/nixpkgs/nixpkgs-25.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
 
-    darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
+    darwin.url = "github:nix-darwin/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     # home-manager, used for managing user configuration
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     mac-app-util.url = "github:hraban/mac-app-util";
 
@@ -43,7 +43,8 @@
       username = "lukas";
       hostname = "BettyBlue";
       system = "aarch64-darwin"; # aarch64-darwin or x86_64-darwin
-      stateVersion = "24.05";
+      # stateVersion = "24.05";
+      stateVersion = "25.05";
 
       specialArgs = inputs // {
         inherit username hostname;
