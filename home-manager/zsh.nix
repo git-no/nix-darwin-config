@@ -20,6 +20,10 @@
     # shellenv
 
     initContent = ''
+      setopt extended_glob
+      setopt dot_glob
+      setopt null_glob
+
       # Setup the brew package manager for GUI apps
       eval "$(/opt/homebrew/bin/brew shellenv)"
     '';

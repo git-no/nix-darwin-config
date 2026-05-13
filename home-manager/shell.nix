@@ -4,6 +4,8 @@
     enable = true;
     enableCompletion = true;
     # initExtra = ''
+    #   setopt extended_glob
+    #   setopt dot_glob
     #   export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     # '';
   };
@@ -13,7 +15,7 @@
     nodejs # Standard-Node.js-Version
     bun
     pnpm
-    nixfmt-rfc-style
+    nixfmt
     # nodejs-18_x # Alternativ: spezifische Node.js-Version
   ];
 

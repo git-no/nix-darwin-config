@@ -37,7 +37,7 @@
         };
       };
 
-      aliases = {
+      alias = {
         # common aliases
         br = "branch";
         co = "checkout";
