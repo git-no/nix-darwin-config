@@ -24,8 +24,9 @@
         email = "git-no@users.noreply.github.com";
       };
 
+      init.defaultBranch = "main";
+
       extraConfig = {
-        init.defaultBranch = "main";
         push.autoSetupRemote = true;
         pull.rebase = true;
       };
