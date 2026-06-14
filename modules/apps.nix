@@ -132,10 +132,10 @@
         name = "transmit";
         greedy = true;
       }
-      {
-        name = "tower";
-        greedy = true;
-      }
+      # {
+      #   name = "tower";
+      #   greedy = true;
+      # }
       {
         name = "windows-app";
         greedy = true;
