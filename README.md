@@ -19,8 +19,12 @@ Installation
 A new computer setup.
 
 1. Install xcode
-1. Install Nix package manager via [DeterminateSystems][2] or `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install` with Option/Question "Install Determinate Nix" => NO!
-1. Save this prepared configuration to ~/.nix-config.
+1. Install Nix package manager via [DeterminateSystems][2] or 
+
+   `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install`
+
+   with Option/Question "Install Determinate Nix" => **NO!**
+1. Save this prepared configuration to ~/.nix-config.  
 Maintain a git repo for version control.
 
 ---
@@ -30,7 +34,7 @@ Maintain a git repo for version control.
 1. Install Homebrew, see <https://brew.sh/>
    1. Homebrew is required to install most of the GUI apps, App Store's apps, and some CLI apps that are not available in nix's package repository `nixpkgs`.
 1. Search `TODO` in this `minimal` folder, and complete all the TODOs.
-1. Run the following command in the root of your nix configuration to start your nix-darwin journey(please change `hostname` to your hostname):
+1. Run the following command in the root of your nix configuration to start your nix-darwin journey (please change `hostname` to your hostname):
 
    ```bash
    nix build .#darwinConfigurations.hostname.system \
@@ -62,11 +66,7 @@ Update
    ```bash
    nix flake update
    sudo darwin-rebuild switch --flake .
-   ```
-
-Durch zsh Shortcut reicht jetzt auch aus
-
-   ```bash
+   # Because of zsh shortcut simply use `switch` instead of previous two lines
    switch
    ```
 
@@ -79,22 +79,17 @@ Manually from time to time
    sudo determinate-nixd upgrade
    ```
 
+---
+
 Brew cask
 ---------
+
+Braucht es nicht, wird mit `switch` durchgeführt.
 
    ```bash
    eval "$(/opt/homebrew/bin/brew shellenv)"
    brew upgrade --greedy
    ````
-
-Bun upgrade
------------
-
-```bash
-nix flake update
-darwin-rebuild switch --flake .
-sudo darwin-rebuild switch --flake .
-```
 
 Configuration Structure
 -----------------------
@@ -140,7 +135,7 @@ devshell.nix for the default devshell
 formatter.nix for the default formatter
 package.nix for the default package
 
-Links 
+Links
 -----
 
 https://formulae.brew.sh
@@ -263,7 +258,6 @@ Use this as a base and modify the configuration for other environements.
    sudo darwin-rebuild switch --flake .
    ```
 
-
 Einrichtungen
 -------------
 
@@ -279,7 +273,6 @@ Einrichtungen
 - Apple Wallet/Pay
 
 - bun
-
 
 [1]:https://nixos.org/download.html#nix-install-macos
 [2]:https://github.com/DeterminateSystems/nix-installer

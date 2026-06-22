@@ -64,15 +64,14 @@
         greedy = true;
       }
       # {
-      # better use podman
-      #   name = "docker-desktop";
-      #   greedy = true;
-      # }
-      # {
       # Fehler bei Installation, 3/2026
       #   name = "expressvpn";
       #   greedy = true;
       # }
+      {
+        name = "container";
+        greedy = true;
+      }
       {
         name = "fliqlo";
         greedy = true;
