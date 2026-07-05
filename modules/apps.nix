@@ -44,9 +44,6 @@
       "mole"
       "container"
     ];
-    # formulae = [
-    #   "container"
-    # ];
 
     # https://formulae.brew.sh
     casks = [

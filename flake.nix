@@ -39,7 +39,6 @@
       ...
     }:
     let
-      # TODO replace with your own username, system and hostname
       username = "lukas";
       hostname = "BettyBlue";
       system = "aarch64-darwin"; # aarch64-darwin or x86_64-darwin
@@ -57,7 +56,6 @@
           ./modules/nix-core.nix
           ./modules/system.nix
           ./modules/apps.nix
-          # ./modules/homebrew-mirror.nix
           ./modules/host-users.nix
 
           mac-app-util.darwinModules.default
