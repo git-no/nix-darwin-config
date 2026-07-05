@@ -1,4 +1,9 @@
-{ username, pkgs, ... }:
+{
+  username,
+  stateVersion,
+  pkgs,
+  ...
+}:
 
 {
   # import sub modules
@@ -23,7 +28,7 @@
     # the Home Manager release notes for a list of state version
     # changes in each release.
     # https://nixos.org/manual/nixos/unstable/release-notes
-    stateVersion = "25.05";
+    inherit stateVersion;
   };
 
   home.packages = with pkgs; [

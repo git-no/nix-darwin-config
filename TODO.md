@@ -16,7 +16,9 @@ Offene Setup-Punkte
 - [ ] Config-Dateien als Files spiegeln statt als Text in der Nix-Config
 - [ ] Apps (VSC, Obsidian, Windows App) -> kontrollieren, ob sie in der App-Übersicht angezeigt werden; mit Obsidian anfangen
 - [ ] App-Konfigurationsverzeichnisse (Dotfiles) sichern/verwalten
-- [ ] Verschiedene User und Systeme (mehrere Hosts) unterstützen
+- [x] Verschiedene User und Systeme (mehrere Hosts) unterstützen — Struktur unter [hosts/](hosts/) umgesetzt, siehe README-Abschnitt "Neuen Host hinzufügen"
+- [ ] Home-Manager-Konfiguration pro Host unterscheidbar machen (aktuell für alle Hosts gemeinsam, siehe [home-manager/default.nix](home-manager/default.nix))
+- [ ] `modules/system.nix` hardware-/host-spezifische Werte (z.B. `networking.knownNetworkServices`, Dock `persistent-apps`) bei Bedarf pro Host überschreibbar machen, z.B. via `hosts/<name>/configuration.nix`
 - [ ] Secrets, SSH-Key sichern (z.B. GitHub-Autorisierung per SSH, known_hosts) — Kandidat: agenix oder sops-nix
 - [ ] Alles, was im Home-Verzeichnis als Dotfile herumliegt, sichern
 - [x] Darwin System-Config (Maus etc.) — Achtung: bei VSCode darauf achten, dass Settings bei `switch` nicht immer wieder leer/neu synchronisiert werden; Nix sollte die VSCode-Settings nicht überschreiben.
@@ -61,20 +63,17 @@ Bereits erledigt
 - [x] MonitorControl
 - [ ] VSCode — Einstellungen/Sync noch nicht sauber deklarativ
 
-Mögliche zukünftige Repo-Struktur
-----------------------------------
+Nicht umgesetzte Struktur-Ideen (aus dem Kickstarter-Template)
+---------------------------------------------------------------
 
-Falls mehrere Hosts/User dazukommen, wäre folgende Struktur ein Kandidat
-(aktuell **nicht** umgesetzt — heute ist alles fest auf einen Host verdrahtet,
-siehe [flake.nix](flake.nix)):
+Die Multi-Host-Umstellung (`hosts/`) ist umgesetzt. Diese Teile des
+ursprünglichen Templates gibt es weiterhin nicht und sind aktuell auch
+nicht geplant, nur als Notiz falls später relevant:
 
 ```
 checks/       # für flake checks
 devshells/    # für devshells
-hosts/        # Maschinen-Konfigurationen
-hosts/*/users/  # Home-Manager-Konfigurationen pro Host/User
 lib/          # Nix-Funktionen
-modules/      # NixOS/nix-darwin Module
 packages/     # eigene Pakete
 templates/    # flake templates
 ```

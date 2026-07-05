@@ -39,50 +39,75 @@
       ...
     }:
     let
-      username = "lukas";
-      hostname = "BettyBlue";
-      system = "aarch64-darwin"; # aarch64-darwin or x86_64-darwin
-      # stateVersion = "24.05";
-      stateVersion = "25.05";
+      lib = nixpkgs.lib;
 
-      specialArgs = inputs // {
-        inherit username hostname;
-      };
+      # Every subdirectory of ./hosts is one machine. Its default.nix declares
+      # that machine's hostname/username/system/stateVersion. Adding a new
+      # host only requires a new hosts/<name>/default.nix, no edits here.
+      hostsDir = ./hosts;
+      hostNames = builtins.attrNames (
+        lib.filterAttrs (_name: type: type == "directory") (builtins.readDir hostsDir)
+      );
+
+      mkHost =
+        hostName:
+        let
+          hostPath = hostsDir + "/${hostName}";
+          host = import (hostPath + "/default.nix");
+          inherit (host) username system stateVersion;
+          hostname = host.hostname or hostName;
+
+          specialArgs = inputs // {
+            inherit username hostname stateVersion;
+          };
+
+          # Optional per-host nix-darwin overrides/extras, e.g.
+          # hosts/<name>/configuration.nix for a different app selection or
+          # different hardware-specific system.nix settings. Only included
+          # if the file actually exists.
+          hostConfigPath = hostPath + "/configuration.nix";
+          hostModules = lib.optional (builtins.pathExists hostConfigPath) hostConfigPath;
+        in
+        darwin.lib.darwinSystem {
+          inherit system specialArgs;
+          modules = [
+            ./modules/nix-core.nix
+            ./modules/system.nix
+            ./modules/apps.nix
+            ./modules/host-users.nix
+          ]
+          ++ hostModules
+          ++ [
+            mac-app-util.darwinModules.default
+
+            (
+              { ... }:
+              {
+                system.primaryUser = username;
+              }
+            )
+
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.users.${username} = import ./home-manager;
+              home-manager.sharedModules = [
+                mac-app-util.homeManagerModules.default
+              ];
+            }
+          ];
+        };
+
+      systems = lib.unique (
+        map (hostName: (import (hostsDir + "/${hostName}/default.nix")).system) hostNames
+      );
     in
     {
-      darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
-        inherit system specialArgs;
-        modules = [
-          ./modules/nix-core.nix
-          ./modules/system.nix
-          ./modules/apps.nix
-          ./modules/host-users.nix
+      darwinConfigurations = lib.genAttrs hostNames mkHost;
 
-          mac-app-util.darwinModules.default
-
-          # home manager
-          (
-            { pkgs, ... }:
-            {
-              system.primaryUser = "lukas";
-              # Weitere Konfigurationen...
-            }
-          )
-
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.${username} = import ./home-manager;
-            home-manager.sharedModules = [
-              mac-app-util.homeManagerModules.default
-            ];
-          }
-        ];
-      };
-
-      # nix code formatter
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+      # nix code formatter, one per system architecture actually used by a host
+      formatter = lib.genAttrs systems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
     };
 }
