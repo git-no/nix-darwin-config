@@ -67,7 +67,7 @@ Update
    nix flake update
    sudo darwin-rebuild switch --flake .
    # Because of zsh shortcut simply use `switch` instead of previous two lines
-   switch
+   switch # path in zsh.nix
    ```
 
 Upgrade nix determine

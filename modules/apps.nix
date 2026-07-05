@@ -42,7 +42,11 @@
     ];
     brews = [
       "mole"
+      "container"
     ];
+    # formulae = [
+    #   "container"
+    # ];
 
     # https://formulae.brew.sh
     casks = [
@@ -69,7 +73,7 @@
       #   greedy = true;
       # }
       {
-        name = "container";
+        name = "claude";
         greedy = true;
       }
       {

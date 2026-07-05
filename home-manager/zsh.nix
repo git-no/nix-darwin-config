@@ -14,7 +14,7 @@
     shellAliases = {
       ll = "ls -l";
       la = "ls -la";
-      switch = "sudo darwin-rebuild switch --flake ~/.nix-config";
+      switch = "sudo darwin-rebuild switch --flake ~/.config/nix";
       ns = "nix-shell";
     };
     # shellenv
