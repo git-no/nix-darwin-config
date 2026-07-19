@@ -24,6 +24,17 @@
 
       # Setup the brew package manager for GUI apps
       eval "$(/opt/homebrew/bin/brew shellenv)"
+
+      # Non-secret defaults for using Claude Code via OpenRouter.
+      export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
+      export ANTHROPIC_API_KEY=""
+
+      # OPENROUTER_API_KEY lives outside git in ~/.config/nix/secrets/,
+      # see secrets/openrouter.zsh.example for the expected format.
+      if [[ -f "$HOME/.config/nix/secrets/openrouter.zsh" ]]; then
+        source "$HOME/.config/nix/secrets/openrouter.zsh"
+        export ANTHROPIC_AUTH_TOKEN="$OPENROUTER_API_KEY"
+      fi
     '';
   };
 
