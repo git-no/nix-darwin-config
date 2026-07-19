@@ -43,6 +43,7 @@
     brews = [
       "mole"
       "container"
+      "oven-sh/bun/bun"
     ];
 
     # https://formulae.brew.sh
