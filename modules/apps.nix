@@ -57,10 +57,10 @@
       #   name = "1password";
       #   greedy = true;
       # }
-      {
-        name = "anytype";
-        greedy = true;
-      }
+      # {
+      #   name = "anytype"; # Obsidian alternative, but not as good as Obsidian
+      #   greedy = true;
+      # }
       {
         name = "appcleaner";
         greedy = true;

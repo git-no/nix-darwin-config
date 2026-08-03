@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(nix eval *)"
+      "Bash(nix eval *)",
+      "Bash(curl -s https://raw.githubusercontent.com/NixOS/nixpkgs/nixpkgs-unstable/pkgs/development/tools/pnpm/default.nix)",
+      "Bash(curl -s https://raw.githubusercontent.com/NixOS/nixpkgs/nixpkgs-unstable/pkgs/by-name/pn/pnpm/package.nix)"
     ]
   }
 }

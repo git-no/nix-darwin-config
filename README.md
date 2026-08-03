@@ -139,6 +139,18 @@ Your current nix-darwin configuration's structure should be as follows:
    └── README.md
    ```
 
+Addional Manually Setup
+-----------------------
+Claude Plugin setup
+https://svelte.dev/docs/ai/claude-plugin
+
+https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing
+
+in Claude Code und VSC Copiot installieren
+
+SKill Übersicht
+https://www.skills.sh
+
 Links
 -----
 
