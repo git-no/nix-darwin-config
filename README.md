@@ -50,9 +50,10 @@ Update
 ------
 
    ```bash
-   nix flake update
+   nix flake update # or nix flake update nixpkgs-unstable
    sudo darwin-rebuild switch --flake .
-   # Because of the zsh shortcut simply use `switch` instead of the previous two lines
+
+   # Because of the zsh shortcut simply use `switch` instead of the previous darwin-rebuild line
    switch # alias defined in home-manager/zsh.nix
    ```
 
@@ -87,7 +88,7 @@ Neuen Host hinzufügen
    ```nix
    {
      hostname = "MeinLaptop";
-     username = "lukas";
+     username = "USERNAME";
      system = "aarch64-darwin"; # aarch64-darwin oder x86_64-darwin
      stateVersion = "25.05";
    }

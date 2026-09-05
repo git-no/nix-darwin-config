@@ -138,15 +138,19 @@
       #   greedy = true;
       # }
       {
-        name = "windows-app";
+        name = "usenapp";
         greedy = true;
       }
       {
         name = "visual-studio-code";
         greedy = true;
       }
+      # {
+      #   name = "wallper";
+      #   greedy = true;
+      # }
       {
-        name = "usenapp";
+        name = "windows-app";
         greedy = true;
       }
       # {
