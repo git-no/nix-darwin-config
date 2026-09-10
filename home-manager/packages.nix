@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     nodejs
-    pnpm
+    # pnpm # pnpm 1 selber installiert, weil nix es nicht zeitnah anietet
     nixfmt
   ];
 }

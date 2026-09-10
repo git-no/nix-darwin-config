@@ -25,6 +25,12 @@
       # Setup the brew package manager for GUI apps
       eval "$(/opt/homebrew/bin/brew shellenv)"
 
+      export PNPM_HOME="$HOME/Library/pnpm"
+      case ":$PATH:" in
+        *":$PNPM_HOME/bin:"*) ;;
+        *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+      esac
+
       # Non-secret defaults for using Claude Code via OpenRouter.
       # export ANTHROPIC_BASE_URL="https://openrouter.ai/api"
       # export ANTHROPIC_API_KEY=""

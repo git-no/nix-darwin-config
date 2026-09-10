@@ -51,7 +51,7 @@ Update
 
    ```bash
    nix flake update # or nix flake update nixpkgs-unstable
-   sudo darwin-rebuild switch --flake .
+   sudo darwin-rebuild switch --flake .#BettyBlue # für Test darwin-rebuild build --flake .#BettyBlue
 
    # Because of the zsh shortcut simply use `switch` instead of the previous darwin-rebuild line
    switch # alias defined in home-manager/zsh.nix
