@@ -20,7 +20,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
-    mac-app-util.url = "github:hraban/mac-app-util";
+    # mac-app-util.url = "github:hraban/mac-app-util";
 
   };
 
@@ -35,7 +35,7 @@
       nixpkgs,
       darwin,
       home-manager,
-      mac-app-util,
+      # mac-app-util,
       ...
     }:
     let
@@ -78,8 +78,6 @@
           ]
           ++ hostModules
           ++ [
-            mac-app-util.darwinModules.default
-
             (
               { ... }:
               {
@@ -91,10 +89,11 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hm-backup";
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.users.${username} = import ./home-manager;
               home-manager.sharedModules = [
-                mac-app-util.homeManagerModules.default
+                # mac-app-util.homeManagerModules.default
               ];
             }
           ];
