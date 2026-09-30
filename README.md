@@ -23,17 +23,24 @@ Installation
 A new computer setup.
 
 1. Install Xcode
+
+1. Install TLS over DNS certificate from [Quad9](https://docs.quad9.net/Setup_Guides/MacOS/Big_Sur_and_later_%28Encrypted%29/)
+
 1. Install Nix package manager via [DeterminateSystems][2] or
 
    `curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install`
 
    with Option/Question "Install Determinate Nix" => **NO!**
+
 1. Save this prepared configuration to `~/.config/nix`.
    Maintain a git repo for version control.
+
 1. Read all the files in this repository, and understand what they do.
    1. If you have trouble understanding, [ryan4yin/nixos-and-flakes-book][3] is a good resource to learn nix and flakes.
+
 1. Install Homebrew, see <https://brew.sh/>
    1. Homebrew is required to install most of the GUI apps, App Store's apps, and some CLI apps that are not available in nix's package repository `nixpkgs`.
+
 1. Run the following command in the root of your nix configuration to build and activate it:
 
    ```bash

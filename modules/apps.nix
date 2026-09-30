@@ -145,8 +145,12 @@
         name = "visual-studio-code";
         greedy = true;
       }
+      # workaround https://www.reddit.com/r/MacOS/comments/1eqbq37/macos_sonoma_or_later_apply_your_own_dynamic/
+      # Vergleich: https://gifpaper.com/guide/animated-moving-wallpapers/
+      # wie geht das technisch
+      # wie trennen sie video von audio, audio läuft länger
       # {
-      #   name = "wallper";
+      #   name = "wallper"; # vs. wallspace, gifpaper
       #   greedy = true;
       # }
       {
