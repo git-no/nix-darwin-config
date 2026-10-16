@@ -44,6 +44,7 @@
       "mole"
       "container"
       "oven-sh/bun/bun"
+      "python3"
     ];
 
     # https://formulae.brew.sh
@@ -62,6 +63,7 @@
       #   greedy = true;
       # }
       {
+        # remove apps completely, not just move to trash
         name = "appcleaner";
         greedy = true;
       }
@@ -71,77 +73,91 @@
       #   greedy = true;
       # }
       {
+        # AI assistant
         name = "claude";
         greedy = true;
       }
       {
+        # Clock screensaver
         name = "fliqlo";
         greedy = true;
       }
       {
+        # image viewer
         name = "flowvision";
       }
       {
+        # Keyboard management
         name = "fluor";
         greedy = true;
       }
       {
+        # Terminal app
         name = "ghostty";
         greedy = true;
       }
       {
+        # Media player
         name = "iina";
         greedy = true;
       }
       {
+        # menu bar management
         name = "thaw";
         greedy = true;
       }
       # {
+      # installed directly by download the app
       #   name = "little-snitch";
       #   # greedy = true;
       # }
       {
+        # Collaboration tool
         name = "microsoft-teams";
         greedy = true;
       }
       {
+        # Monitor control utility
         name = "monitorcontrol";
         greedy = true;
       }
       {
+        # Note-taking app
         name = "obsidian";
         greedy = true;
       }
       {
+        # Cloud storage service
         name = "onedrive";
         greedy = true;
       }
       {
+        # Office suite
         name = "onlyoffice";
         greedy = true;
       }
       {
+        # Password manager
         name = "proton-pass";
         greedy = true;
       }
       {
+        # VPN service
         name = "protonvpn";
         greedy = true;
       }
       {
+        # FTP - File transfer client
         name = "transmit";
         greedy = true;
       }
-      # {
-      #   name = "tower";
-      #   greedy = true;
-      # }
       {
+        # Usenet client
         name = "usenapp";
         greedy = true;
       }
       {
+        # Code editor
         name = "visual-studio-code";
         greedy = true;
       }
@@ -150,16 +166,15 @@
       # wie geht das technisch
       # wie trennen sie video von audio, audio läuft länger
       # {
-      #   name = "wallper"; # vs. wallspace, gifpaper
+      # habe jetzt meine eigene Wallpaper-App programmiert :-)
+      #   name = "wallspace"; # "wallper"; # vs. wallspace, gifpaper, wallux
       #   greedy = true;
       # }
       {
+        # RDP client
         name = "windows-app";
         greedy = true;
       }
-      # {
-      #   name = "lm-studio";
-      # }
     ];
   };
 }
