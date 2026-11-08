@@ -97,6 +97,11 @@
         greedy = true;
       }
       {
+        # Grok Bot
+        name = "grok-bot";
+        greedy = true;
+      }
+      {
         # Media player
         name = "iina";
         greedy = true;
